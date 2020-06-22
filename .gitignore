@@ -1,0 +1,8 @@
+.idea/
+.aws/
+
+app/.chalice/deployments/
+app/.chalice/venv/
+
+app/__pycache__/
+

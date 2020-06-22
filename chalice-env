@@ -1,0 +1,16 @@
+#!/bin/sh
+
+export tag=latest
+if [ "$1" != "" ]; then
+    export tag=$1
+fi
+
+if [ "$2" != "no-build" ]; then
+    docker build -t "shopify_serverless_app:${tag}" .
+fi
+
+docker run -it \
+    -v "${PWD}"/app:/app \
+    "shopify_serverless_app:${tag}" \
+    bash
+
