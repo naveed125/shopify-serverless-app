@@ -6,6 +6,9 @@ COPY app /app
 
 COPY .aws /root/.aws
 
+RUN apt-get update \
+&&  apt-get install -y curl
+
 RUN pip install \
     chalice
 
