@@ -1,7 +1,9 @@
 .idea/
-.aws/
+
+aws/config
 
 app/.chalice/deployments/
+app/.chalice/deployed/
 app/.chalice/venv/
 
 app/__pycache__/

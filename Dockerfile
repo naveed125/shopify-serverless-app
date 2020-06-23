@@ -4,11 +4,9 @@ WORKDIR /app
 
 COPY app /app
 
-COPY .aws /root/.aws
-
-RUN apt-get update \
-&&  apt-get install -y curl
+COPY aws/config /root/.aws/config
 
 RUN pip install \
-    chalice
+    chalice \
+    httpie
 
