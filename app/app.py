@@ -32,9 +32,10 @@ def index():
     shop = params.get('shop')
     hmac = params.get('hmac')
     timestamp = params.get('timestamp')
-    api_key = os.getenv('API_KEY')
+    api_key = os.getenv('SHOPIFY_API_KEY')
+    base_url = os.getenv('AWS_API_BASE_URL')
     scopes = "read_orders,read_customers"
-    redirect_uri = "https://k2jog2foqe.execute-api.us-east-2.amazonaws.com/api/confirm/install"
+    redirect_uri = f"https://{base_url}/api/confirm/install"
     nonce = time.time()
 
     #
@@ -85,8 +86,8 @@ def confirmInstall():
     hmac = params.get('hmac')
     timestamp = params.get('timestamp')
     state = params.get('state')
-    api_key = os.getenv('API_KEY')
-    api_secret = os.getenv('API_SECRET')
+    api_key = os.getenv('SHOPIFY_API_KEY')
+    api_secret = os.getenv('SHOPIFY_API_SECRET')
 
     # TODO verify hmac
 
@@ -110,9 +111,9 @@ def confirmInstall():
 
     # Response content should look something like this
     # {
-    #     "code": "95e04927ddf9cd0b0abb3242de343d5661",
-    #     "hmac": "7ab88659c73a72323432b5e7cd011105a977d6af517991cb709c4f00c9c0e0",
-    #     "shop": "shopname.myshopify.com",
+    #     "code": "XXXXXXXXXXXXXXXXXXXXXXXXX",
+    #     "hmac": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    #     "shop": "XXXXXXXXX.myshopify.com",
     #     "state": "1593318793.829355",
     #     "timestamp": "1593318794"
     # }
